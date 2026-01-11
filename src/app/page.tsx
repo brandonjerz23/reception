@@ -1,113 +1,176 @@
-import Image from 'next/image'
+import { RsvpForm } from "@/components/RsvpForm";
+import { OpenInMapsLink } from "@/components/OpenInMapsLink";
+import Image from "next/image";
 
 export default function Home() {
+  const heroPhoto1 = "/photos/hero-1.jpg";
+  const heroPhoto2 = "/photos/hero-2.jpg";
+  const heroPhoto = heroPhoto1;
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+    <main className="min-h-screen">
+      <header className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/70 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div>
+              <p className="text-sm font-semibold tracking-tight text-white">
+                Brandon &amp; Ashley
+              </p>
+              <p className="text-xs text-white/60">Reception RSVP</p>
+            </div>
+          </div>
+
           <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#rsvp"
+            className="inline-flex h-10 items-center rounded-xl bg-white px-4 text-sm font-semibold text-slate-900 transition hover:bg-white/90"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+            RSVP
           </a>
         </div>
-      </div>
+      </header>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={heroPhoto}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/55 to-slate-950" />
+        </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <div className="relative mx-auto max-w-6xl px-6 pb-14 pt-12 sm:pb-20 sm:pt-16">
+          <div className="max-w-3xl">
+            <p className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-medium tracking-wide text-white/80">
+              Saturday, September 26, 2026 • 3–8 PM
+            </p>
+            <h1 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+              Join us for a send‑off reception in Buffalo
+            </h1>
+            <p className="mt-4 max-w-2xl text-base text-white/80 sm:text-lg">
+              We&apos;ll be eloping in Ireland shortly after — the ceremony
+              itself will be just the two of us. This reception is our chance to
+              celebrate with family and friends.
+            </p>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#rsvp"
+                className="inline-flex h-11 items-center rounded-xl bg-white px-5 text-sm font-semibold text-slate-900 transition hover:bg-white/90"
+              >
+                RSVP now
+              </a>
+              <OpenInMapsLink
+                address="Tewksbury Lodge 249 Ohio St, Buffalo, NY 14204"
+                className="inline-flex h-11 items-center rounded-xl border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white/95 transition hover:border-white/25 hover:bg-white/10"
+              >
+                Open in Maps
+              </OpenInMapsLink>
+            </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <p className="text-sm font-semibold text-white">Where</p>
+                <p className="mt-2 text-white/85">
+                  Tewksbury Lodge
+                  <br />
+                  249 Ohio St
+                  <br />
+                  Buffalo, NY 14204
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <p className="text-sm font-semibold text-white">When</p>
+                <p className="mt-2 text-white/85">
+                  Saturday, September 26, 2026
+                  <br />
+                  3:00 PM – 8:00 PM
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <p className="text-sm font-semibold text-white">Dress</p>
+                <p className="mt-2 text-white/85">
+                  Come as you are —
+                  <br />
+                  celebration‑ready.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <section className="mx-auto max-w-6xl px-6 py-14 sm:py-20">
+        <div className="grid gap-10 md:grid-cols-2 md:items-start">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight text-white">
+              A few details
+            </h2>
+            <p className="mt-3 text-white/70">
+              We&apos;ll have food, drinks, and plenty of time to hang out.
+            </p>
+
+            <div className="mt-6 grid gap-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <p className="text-sm font-semibold text-white">Schedule</p>
+                <ul className="mt-2 space-y-2 text-sm text-white/75">
+                  <li>3:00 PM — Doors open</li>
+                  <li>3:30 PM — Toasts &amp; mingling</li>
+                  <li>5:00 PM — Food</li>
+                  <li>8:00 PM — Wrap up</li>
+                </ul>
+                <p className="mt-3 text-xs text-white/55">
+                  (This is flexible — we mostly just want to see you.)
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <p className="text-sm font-semibold text-white">Photos</p>
+                <p className="mt-2 text-sm text-white/70">
+                  A little preview of us before the big celebration.
+                </p>
+                <div className="mt-4 grid grid-cols-2 gap-4">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-white/10">
+                    <Image
+                      src={heroPhoto1}
+                      alt="Brandon and Ashley"
+                      fill
+                      sizes="(max-width: 768px) 45vw, 240px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-white/10">
+                    <Image
+                      src={heroPhoto2}
+                      alt="Brandon and Ashley by the water"
+                      fill
+                      sizes="(max-width: 768px) 45vw, 240px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="rsvp" className="scroll-mt-24">
+            <RsvpForm />
+            <p className="mt-4 text-xs text-white/55">
+              Your RSVP is saved privately to our database.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 bg-slate-950">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-10 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>Thanks for celebrating with us.</p>
+          <p>Brandon &amp; Ashley • Buffalo, NY</p>
+        </div>
+      </footer>
     </main>
-  )
+  );
 }

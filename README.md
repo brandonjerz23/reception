@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Reception RSVP Website (Brandon & Ashley)
 
-## Getting Started
+This is a simple RSVP site for the send-off reception:
 
-First, run the development server:
+- **Date:** Saturday, September 26, 2026
+- **Time:** 3:00 PM – 8:00 PM
+- **Location:** Tewksbury Lodge, 249 Ohio St, Buffalo, NY 14204
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+It includes an RSVP form (accept/decline, name required, email optional) and a backend API route that saves RSVPs to **Supabase Postgres**.
+
+## Prerequisites
+
+- Node.js **20+** (recommended for local dev and required for deployment)
+- A Supabase project (free tier is fine)
+
+## 1) Supabase setup (database)
+
+1. Create a new Supabase project.
+2. In Supabase, open **SQL Editor** and run:
+
+```sql
+create extension if not exists pgcrypto;
+
+create table if not exists public.rsvps (
+	id uuid primary key default gen_random_uuid(),
+	name text not null,
+	email text null,
+	status text not null check (status in ('accept', 'decline')),
+	party_size integer null,
+	notes text null,
+	created_at timestamptz not null default now()
+);
+
+create index if not exists rsvps_created_at_idx on public.rsvps (created_at desc);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you already created the table earlier, run this instead:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sql
+alter table public.rsvps
+	add column if not exists party_size integer null,
+  add column if not exists notes text null;
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 2) Environment variables
 
-## Learn More
+Copy the example env file:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cp .env.example .env.local
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Fill in:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `SUPABASE_URL` — from Supabase **Project Settings → API**
+- `SUPABASE_SERVICE_ROLE_KEY` — from Supabase **Project Settings → API** (keep this secret)
 
-## Deploy on Vercel
+## 3) Run locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm install
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Then open `http://localhost:3000`.
+
+Optional health check:
+
+- `GET /api/rsvp/health`
+
+## 4) Deploy (Vercel)
+
+1. Push this repo to GitHub.
+2. Create a new project in Vercel and import the repo.
+3. In Vercel, set Environment Variables:
+
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+4. Deploy.
+
+## Viewing RSVPs
+
+In Supabase:
+
+- Go to **Table Editor → rsvps**
+- Or run:
+
+```sql
+select * from public.rsvps order by created_at desc;
+```
+
+## Updating photos
+
+Placeholder images live in:
+
+- `public/placeholders/hero.svg`
+- `public/placeholders/couple.svg`
+- `public/placeholders/venue.svg`
+
+Hero photos (the two big images at the top of the page) should be placed here:
+
+- `public/photos/hero-1.jpg`
+- `public/photos/hero-2.jpg`
+
+You can use `.jpg`, `.jpeg`, `.png`, or `.webp` — just update the filenames referenced in `src/app/page.tsx` if you change extensions.
+
+You can also replace the placeholder SVGs (same filenames) or update references in `src/app/page.tsx`.
+
+## Note about Next.js version
+
+If you’re on Node 20+ (recommended), you can upgrade dependencies any time:
+
+```bash
+npm install next@latest eslint-config-next@latest
+```

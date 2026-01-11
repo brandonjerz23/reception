@@ -1,0 +1,16 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img"
+    aria-label="Couple photo placeholder">
+    <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f8fafc" />
+            <stop offset="1" stop-color="#e2e8f0" />
+        </linearGradient>
+    </defs>
+    <rect width="1200" height="800" fill="url(#g)" />
+    <rect x="60" y="60" width="1080" height="680" rx="28" fill="#ffffff" opacity="0.7"
+        stroke="#cbd5e1" />
+    <g fill="#0f172a" font-family="ui-sans-serif, system-ui" text-anchor="middle">
+        <text x="600" y="395" font-size="40" font-weight="700">Replace with a couple photo</text>
+        <text x="600" y="448" font-size="20" opacity="0.8">/public/placeholders/couple.svg</text>
+    </g>
+</svg>

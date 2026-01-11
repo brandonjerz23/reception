@@ -1,0 +1,9 @@
+- [x] Verify that the copilot-instructions.md file in the .github directory is created.
+- [x] Clarify Project Requirements (Next.js + Tailwind + Supabase RSVP storage).
+- [x] Scaffold the Project (Next.js App Router + Tailwind).
+- [x] Customize the Project (landing page + RSVP form + API routes).
+- [x] Install Required Extensions (none required).
+- [x] Compile the Project (`npm run build` passes).
+- [x] Create and Run Task (not required for this repo).
+- [ ] Launch the Project (skipped: ask if you want me to add a VS Code task/debug setup).
+- [x] Ensure Documentation is Complete (README updated; HTML comments removed).

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Wedding rings">
+    <defs>
+        <radialGradient id="bg" cx="30%" cy="20%" r="90%">
+            <stop offset="0%" stop-color="#334155" />
+            <stop offset="100%" stop-color="#0b1220" />
+        </radialGradient>
+        <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+            <stop offset="100%" stop-color="#e2e8f0" stop-opacity="0.9" />
+        </linearGradient>
+    </defs>
+
+    <rect width="512" height="512" rx="120" fill="url(#bg)" />
+
+    <!-- Interlocking rings -->
+    <g fill="none" stroke="url(#ring)" stroke-width="34" stroke-linecap="round"
+        stroke-linejoin="round">
+        <circle cx="206" cy="280" r="108" opacity="0.98" />
+        <circle cx="312" cy="252" r="108" opacity="0.92" />
+    </g>
+
+    <!-- Small sparkle -->
+    <g fill="#ffffff" opacity="0.92">
+        <path d="M365 142c10 26 14 30 40 40-26 10-30 14-40 40-10-26-14-30-40-40 26-10 30-14 40-40z" />
+    </g>
+</svg>
