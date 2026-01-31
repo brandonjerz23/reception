@@ -1,11 +1,19 @@
 import { RsvpForm } from "@/components/RsvpForm";
 import { OpenInMapsLink } from "@/components/OpenInMapsLink";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import Image from "next/image";
 
 export default function Home() {
   const heroPhoto1 = "/photos/hero-1.jpg";
-  const heroPhoto2 = "/photos/hero-2.jpg";
   const heroPhoto = heroPhoto1;
+
+  const galleryPhotos = Array.from({ length: 14 }, (_, i) => {
+    const number = i + 1;
+    return {
+      src: `/photos/${number}.jpeg`,
+      alt: `Ashley and Brandon photo ${number}`,
+    };
+  });
 
   return (
     <main className="min-h-screen">
@@ -14,7 +22,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <div>
               <p className="text-sm font-semibold tracking-tight text-white">
-                Brandon &amp; Ashley
+                Ashley &amp; Brandon
               </p>
               <p className="text-xs text-white/60">Reception RSVP</p>
             </div>
@@ -53,7 +61,7 @@ export default function Home() {
             <p className="mt-4 max-w-2xl text-base text-white/80 sm:text-lg">
               We&apos;ll be eloping in Ireland shortly after — the ceremony
               itself will be just the two of us. This reception is our chance to
-              celebrate with family and friends.
+              celebrate with family and friends!
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -99,64 +107,38 @@ export default function Home() {
                 </p>
               </div>
             </div>
+
+            <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <p className="text-sm font-semibold text-white">Adults Only</p>
+              <p className="mt-2 text-white/85">
+                We love your little ones, but this will be an adults-only
+                celebration. Thank you for understanding.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-14 sm:py-20">
-        <div className="grid gap-10 md:grid-cols-2 md:items-start">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-white">
-              A few details
-            </h2>
-            <p className="mt-3 text-white/70">
-              We&apos;ll have food, drinks, and plenty of time to hang out.
-            </p>
+        <div className="mb-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-white">
+            A few details
+          </h2>
+          <p className="mt-3 max-w-2xl text-white/70">
+            We&apos;ll have food, drinks, music, and plenty of time to hang out!
+          </p>
+        </div>
 
-            <div className="mt-6 grid gap-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <p className="text-sm font-semibold text-white">Schedule</p>
-                <ul className="mt-2 space-y-2 text-sm text-white/75">
-                  <li>3:00 PM — Doors open</li>
-                  <li>3:30 PM — Toasts &amp; mingling</li>
-                  <li>5:00 PM — Food</li>
-                  <li>8:00 PM — Wrap up</li>
-                </ul>
-                <p className="mt-3 text-xs text-white/55">
-                  (This is flexible — we mostly just want to see you.)
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <p className="text-sm font-semibold text-white">Photos</p>
-                <p className="mt-2 text-sm text-white/70">
-                  A little preview of us before the big celebration.
-                </p>
-                <div className="mt-4 grid grid-cols-2 gap-4">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-white/10">
-                    <Image
-                      src={heroPhoto1}
-                      alt="Brandon and Ashley"
-                      fill
-                      sizes="(max-width: 768px) 45vw, 240px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-white/10">
-                    <Image
-                      src={heroPhoto2}
-                      alt="Brandon and Ashley by the water"
-                      fill
-                      sizes="(max-width: 768px) 45vw, 240px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="grid gap-6 md:grid-cols-2 md:items-start">
+          <div className="min-w-0 max-h-[742px] overflow-scroll rounded-2xl border border-white/10 bg-white/5 p-4">
+            <PhotoGallery
+              photos={galleryPhotos}
+              variant="grid"
+              showHint={false}
+            />
           </div>
 
-          <div id="rsvp" className="scroll-mt-24">
+          <div id="rsvp" className="min-w-0 scroll-mt-24">
             <RsvpForm />
             <p className="mt-4 text-xs text-white/55">
               Your RSVP is saved privately to our database.
@@ -167,8 +149,8 @@ export default function Home() {
 
       <footer className="border-t border-white/10 bg-slate-950">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-10 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>Thanks for celebrating with us.</p>
-          <p>Brandon &amp; Ashley • Buffalo, NY</p>
+          <p>Thanks for celebrating with us!</p>
+          <p>Ashley &amp; Brandon</p>
         </div>
       </footer>
     </main>

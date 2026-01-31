@@ -120,7 +120,7 @@ export function RsvpForm() {
             RSVP
           </h2>
           <p className="mt-1 text-sm text-white/70">
-            Please respond by adding your name. Email is optional.
+            Please let us know if you can make it 🤞
           </p>
         </div>
         <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
@@ -195,28 +195,29 @@ export function RsvpForm() {
           </div>
         </fieldset>
 
-        <label className="grid gap-2">
-          <span className="text-sm font-medium text-white/90">
-            Party size
-            {status === "accept" ? (
-              <span className="text-rose-200"> *</span>
-            ) : null}
-          </span>
-          <input
-            className="h-11 rounded-xl border border-white/15 bg-black/20 px-4 text-white placeholder-white/40 outline-none transition focus:border-white/30 focus:bg-black/25 disabled:cursor-not-allowed disabled:opacity-60"
-            type="number"
-            min={1}
-            max={10}
-            step={1}
-            inputMode="numeric"
-            value={partySize}
-            onChange={(e) => setPartySize(e.target.value)}
-            disabled={status !== "accept"}
-          />
-          <p className="text-xs text-white/55">
-            Includes you. If you&apos;re unsure, put your best guess.
-          </p>
-        </label>
+        {status !== "decline" ? (
+          <label className="grid gap-2">
+            <span className="text-sm font-medium text-white/90">
+              Party size
+              {status === "accept" ? (
+                <span className="text-rose-200"> *</span>
+              ) : null}
+            </span>
+            <input
+              className="h-11 rounded-xl border border-white/15 bg-black/20 px-4 text-white placeholder-white/40 outline-none transition focus:border-white/30 focus:bg-black/25"
+              type="number"
+              min={1}
+              max={10}
+              step={1}
+              inputMode="numeric"
+              value={partySize}
+              onChange={(e) => setPartySize(e.target.value)}
+            />
+            <p className="text-xs text-white/55">
+              Includes you. If you&apos;re unsure, put your best guess.
+            </p>
+          </label>
+        ) : null}
 
         <label className="grid gap-2">
           <span className="text-sm font-medium text-white/90">
@@ -252,7 +253,7 @@ export function RsvpForm() {
 
         {submit.state === "idle" ? (
           <p className="text-xs text-white/55">
-            If you have trouble, just text Brandon or Ashley.
+            If you have trouble, just text Ashley or Brandon.
           </p>
         ) : null}
       </div>
