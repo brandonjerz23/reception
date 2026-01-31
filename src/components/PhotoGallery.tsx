@@ -124,7 +124,7 @@ export function PhotoGallery({
 
       {activePhoto ? (
         <div
-          className="fixed inset-0 z-50 grid place-items-center bg-black/75 px-4 py-6 backdrop-blur-sm"
+          className="fixed inset-0 z-50 grid place-items-center bg-black/90 px-4 py-6"
           role="dialog"
           aria-modal="true"
           aria-label="Photo viewer"
@@ -148,14 +148,21 @@ export function PhotoGallery({
 
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/30">
               <div className="relative h-[72vh] w-full">
-                <Image
-                  src={activePhoto.src}
-                  alt={activePhoto.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 960px"
-                  className="object-contain"
-                  priority
-                />
+                {/* Preload all images */}
+                {photos.map((photo, idx) => {
+                  const isActive = idx === activeIndex;
+                  return (
+                    <Image
+                      key={photo.src}
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="100vw"
+                      className={`object-contain ${isActive ? "opacity-100" : "opacity-0 absolute"}`}
+                      priority
+                    />
+                  );
+                })}
               </div>
 
               <button
