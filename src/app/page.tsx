@@ -130,7 +130,7 @@ export default function Home() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 md:items-start">
-          <div className="min-w-0 max-h-[742px] overflow-scroll rounded-2xl border border-white/10 bg-white/5 p-4">
+          <div className="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-4 md:max-h-[742px] md:overflow-y-auto">
             <PhotoGallery
               photos={galleryPhotos}
               variant="grid"
