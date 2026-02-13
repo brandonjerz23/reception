@@ -81,7 +81,7 @@ Optional health check:
 
 ## Viewing RSVPs
 
-In Supabase:
+Option A (in Supabase):
 
 - Go to **Table Editor → rsvps**
 - Or run:
@@ -89,6 +89,11 @@ In Supabase:
 ```sql
 select * from public.rsvps order by created_at desc;
 ```
+
+Option B (in this app):
+
+- Visit `/rsvps` to view the list.
+- If you set `RSVP_ADMIN_TOKEN`, open `/rsvps?token=YOUR_TOKEN`.
 
 ## Updating photos
 
