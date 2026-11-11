@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sabesoft — Independent software studio</title>
+<meta name="description" content="Sabesoft LLC is an independent software studio building web apps, mobile apps, and AI-powered tools.">
+<meta property="og:title" content="Sabesoft — Independent software studio">
+<meta property="og:description" content="Web apps, mobile apps, and AI-powered tools, built with care.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sabesoft.co">
+<meta name="theme-color" content="#0f1a17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1a17'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-style='italic' text-anchor='middle' fill='%23d8f26a'%3Es%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1a17;--ink2:#16241f;--paper:#f1eee4;--mute:#9aa89f;--line:rgba(241,238,228,.14);--lime:#d8f26a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(60vw 60vw at 85% -10%,rgba(216,242,106,.13),transparent 60%),radial-gradient(50vw 50vw at -10% 110%,rgba(90,170,150,.14),transparent 60%)}
+a{color:inherit}
+.wrap{position:relative;max-width:1080px;margin:0 auto;padding:0 28px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+header{display:flex;justify-content:space-between;align-items:center;padding:28px 0}
+.logo{font-family:Fraunces,Georgia,serif;font-size:1.5rem;font-weight:500;text-decoration:none;letter-spacing:-.01em}
+.logo i{color:var(--lime)}
+nav a{margin-left:26px;text-decoration:none;transition:color .2s}
+nav a:hover{color:var(--lime)}
+.hero{padding:14vh 0 16vh}
+h1{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:clamp(2.9rem,9vw,7rem);line-height:.98;letter-spacing:-.035em;margin:22px 0 34px}
+h1 em{font-style:italic;color:var(--lime);font-weight:300}
+.lede{max-width:34rem;font-size:1.15rem;color:#cfd5cb}
+.cta{display:inline-block;margin-top:40px;padding:14px 24px;border:1px solid var(--lime);border-radius:999px;color:var(--lime);text-decoration:none;font-family:"JetBrains Mono",monospace;font-size:.85rem;transition:background .2s,color .2s}
+.cta:hover{background:var(--lime);color:var(--ink)}
+section{padding:84px 0;border-top:1px solid var(--line)}
+.head{display:flex;gap:24px;align-items:baseline;margin-bottom:48px;flex-wrap:wrap}
+h2{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.02em;line-height:1.1}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.card{background:var(--ink);padding:34px 30px 40px;transition:background .25s}
+.card:hover{background:var(--ink2)}
+.card .mono{color:var(--lime)}
+h3{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:1.45rem;margin:14px 0 10px;letter-spacing:-.01em}
+.card p,.row p{color:#b9c2b8;font-size:.97rem}
+.row{display:grid;grid-template-columns:1fr 2fr auto;gap:28px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line)}
+.row:first-of-type{border-top:1px solid var(--line)}
+.row h3{margin:0;font-size:1.7rem}
+.tag{font-family:"JetBrains Mono",monospace;font-size:.72rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;color:var(--mute);white-space:nowrap}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.steps div{border-left:1px solid var(--lime);padding-left:20px}
+.steps p{color:#b9c2b8;font-size:.97rem}
+footer{border-top:1px solid var(--line);padding:38px 0 54px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.rise{opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.d1{animation-delay:.12s}.d2{animation-delay:.26s}.d3{animation-delay:.4s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (max-width:760px){.grid,.steps{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:10px}.hero{padding:9vh 0 11vh}nav a{margin-left:16px}section{padding:60px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<a class="logo" href="/">sabe<i>soft</i></a>
+<nav class="mono"><a href="#services">Services</a><a href="#work">Work</a><a href="#approach">Approach</a></nav>
+</header>
+
+<main>
+<div class="hero">
+<p class="mono rise">Sabesoft LLC &middot; Independent software studio</p>
+<h1 class="rise d1">Software that <em>knows</em> what it&rsquo;s for.</h1>
+<p class="lede rise d2">Sabesoft designs and builds web apps, mobile apps, and AI-powered tools &mdash; small in headcount, serious about the craft, and focused on shipping things people actually use.</p>
+<a class="cta rise d3" href="#services">See what we build &darr;</a>
+</div>
+
+<section id="services">
+<div class="head"><span class="mono">01</span><h2>What we build</h2></div>
+<div class="grid">
+<div class="card"><span class="mono">Web</span><h3>Web applications</h3><p>Fast, accessible products built on React, Next.js, and TypeScript &mdash; from the first screen to the API layer behind it.</p></div>
+<div class="card"><span class="mono">Mobile</span><h3>Mobile apps</h3><p>Cross-platform iOS and Android apps with real-time features, maps, notifications, and the polish that keeps people coming back.</p></div>
+<div class="card"><span class="mono">AI</span><h3>AI &amp; automation</h3><p>Practical agents and LLM-powered workflows that take real work off your plate, wired into the tools you already use.</p></div>
+</div>
+</section>
+
+<section id="work">
+<div class="head"><span class="mono">02</span><h2>In the workshop</h2></div>
+<div class="row"><h3>PoolHelp</h3><p>A mobile app that makes looking after a backyard pool a lot less of a guessing game.</p><span class="tag">In development</span></div>
+<div class="row"><h3>More soon</h3><p>New products are on the bench. This page will grow as they ship.</p><span class="tag">Stay tuned</span></div>
+</section>
+
+<section id="approach">
+<div class="head"><span class="mono">03</span><h2>How we work</h2></div>
+<div class="steps">
+<div><h3>Understand first</h3><p>Good software starts with knowing the problem cold. We ask the annoying questions before writing a line of code.</p></div>
+<div><h3>Ship small, ship often</h3><p>Working software early beats a perfect plan late. Real feedback steers the build.</p></div>
+<div><h3>Build to last</h3><p>Clean architecture, typed code, and tests where they count &mdash; so the thing still makes sense a year from now.</p></div>
+</div>
+</section>
+</main>
+
+<footer class="mono"><span>&copy; 2026 Sabesoft LLC</span><span>sabesoft.co</span></footer>
+</div>
+</body>
+</html>
